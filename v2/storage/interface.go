@@ -17,9 +17,9 @@ import (
 	"context"
 	"errors"
 
-	"github.com/prometheus/prometheus/pkg/labels"
-	"github.com/prometheus/prometheus/tsdb/chunkenc"
-	"github.com/prometheus/prometheus/tsdb/chunks"
+	"github.com/rajvikram/prometheus/v2/pkg/labels"
+	"github.com/rajvikram/prometheus/v2/tsdb/chunkenc"
+	"github.com/rajvikram/prometheus/v2/tsdb/chunks"
 )
 
 // The errors exposed.
@@ -46,6 +46,7 @@ type SampleAndChunkQueryable interface {
 
 // Storage ingests and manages samples, along with various indexes. All methods
 // are goroutine-safe. Storage implements storage.SampleAppender.
+// @Raj - New dbs will need to implement this interface. Currently the main() passes in the interface
 type Storage interface {
 	SampleAndChunkQueryable
 	Appendable

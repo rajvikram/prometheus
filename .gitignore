@@ -41,10 +41,10 @@ v2/documentation/examples/remote_storage/remote_storage_adapter/remote_storage_a
 v2/documentation/examples/remote_storage/example_write_adapter/example_writer_adapter
 
 v2/npm_licenses.tar.bz2
-v2//web/ui/static/react
+v2/web/ui/static/react
 v2/web/ui/assets_vfsdata.go
 
-v2//vendor
+v2/vendor
 v2/.build
 
 

@@ -19,7 +19,7 @@ import (
 	"github.com/prometheus/common/model"
 	"github.com/stretchr/testify/require"
 
-	"github.com/prometheus/prometheus/pkg/labels"
+	"github.com/rajvikram/prometheus/v2/pkg/labels"
 )
 
 func TestRelabel(t *testing.T) {

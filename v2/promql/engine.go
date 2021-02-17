@@ -34,12 +34,12 @@ import (
 	"github.com/prometheus/common/model"
 	"github.com/uber/jaeger-client-go"
 
-	"github.com/prometheus/prometheus/pkg/labels"
-	"github.com/prometheus/prometheus/pkg/timestamp"
-	"github.com/prometheus/prometheus/pkg/value"
-	"github.com/prometheus/prometheus/promql/parser"
-	"github.com/prometheus/prometheus/storage"
-	"github.com/prometheus/prometheus/util/stats"
+	"github.com/rajvikram/prometheus/v2/pkg/labels"
+	"github.com/rajvikram/prometheus/v2/pkg/timestamp"
+	"github.com/rajvikram/prometheus/v2/pkg/value"
+	"github.com/rajvikram/prometheus/v2/promql/parser"
+	"github.com/rajvikram/prometheus/v2/storage"
+	"github.com/rajvikram/prometheus/v2/util/stats"
 )
 
 const (
@@ -366,7 +366,7 @@ func (ng *Engine) NewRangeQuery(q storage.Queryable, qs string, start, end time.
 
 	return qry, nil
 }
-
+// @Raj - All queries land here - Instant or range. The execution of the query is handled in the caller
 func (ng *Engine) newQuery(q storage.Queryable, expr parser.Expr, start, end time.Time, interval time.Duration) (*query, error) {
 	if err := ng.validateOpts(expr); err != nil {
 		return nil, err

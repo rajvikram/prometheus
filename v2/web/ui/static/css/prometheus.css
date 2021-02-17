@@ -1,5 +1,5 @@
 html {
-  /* https://github.com/prometheus/prometheus/issues/7434 */
+  /* https://github.com/rajvikram/prometheus/v2/issues/7434 */
   /* Scroll to hash-fragment-links counting the fixed navbar 40px tall + 16px padding */
   scroll-padding-top: 56px;
 }

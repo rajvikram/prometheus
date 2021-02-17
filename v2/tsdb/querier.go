@@ -21,13 +21,13 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/prometheus/prometheus/pkg/labels"
-	"github.com/prometheus/prometheus/storage"
-	"github.com/prometheus/prometheus/tsdb/chunkenc"
-	"github.com/prometheus/prometheus/tsdb/chunks"
-	tsdb_errors "github.com/prometheus/prometheus/tsdb/errors"
-	"github.com/prometheus/prometheus/tsdb/index"
-	"github.com/prometheus/prometheus/tsdb/tombstones"
+	"github.com/rajvikram/prometheus/v2/pkg/labels"
+	"github.com/rajvikram/prometheus/v2/storage"
+	"github.com/rajvikram/prometheus/v2/tsdb/chunkenc"
+	"github.com/rajvikram/prometheus/v2/tsdb/chunks"
+	tsdb_errors "github.com/rajvikram/prometheus/v2/tsdb/errors"
+	"github.com/rajvikram/prometheus/v2/tsdb/index"
+	"github.com/rajvikram/prometheus/v2/tsdb/tombstones"
 )
 
 // Bitmap used by func isRegexMetaCharacter to check whether a character needs to be escaped.
@@ -119,7 +119,7 @@ func NewBlockQuerier(b BlockReader, mint, maxt int64) (storage.Querier, error) {
 	}
 	return &blockQuerier{blockBaseQuerier: q}, nil
 }
-
+// @Raj - storage method called for returning a series set with data
 func (q *blockQuerier) Select(sortSeries bool, hints *storage.SelectHints, ms ...*labels.Matcher) storage.SeriesSet {
 	mint := q.mint
 	maxt := q.maxt
@@ -271,8 +271,8 @@ func PostingsForMatchers(ix IndexReader, ms ...*labels.Matcher) (index.Postings,
 		} else { // l=""
 			// If the matchers for a labelname selects an empty value, it selects all
 			// the series which don't have the label name set too. See:
-			// https://github.com/prometheus/prometheus/issues/3575 and
-			// https://github.com/prometheus/prometheus/pull/3578#issuecomment-351653555
+			// https://github.com/rajvikram/prometheus/v2/issues/3575 and
+			// https://github.com/rajvikram/prometheus/v2/pull/3578#issuecomment-351653555
 			it, err := inversePostingsForMatcher(ix, m)
 			if err != nil {
 				return nil, err
@@ -703,7 +703,7 @@ func (p *populateWithDelChunkSeriesIterator) At() chunks.Meta { return p.curr }
 type blockSeriesSet struct {
 	blockBaseSeriesSet
 }
-
+// @Raj - blockSeriesSet implements the storage.SeriesSet interface to allow the callers to treat the data as a stream
 func newBlockSeriesSet(i IndexReader, c ChunkReader, t tombstones.Reader, p index.Postings, mint, maxt int64) storage.SeriesSet {
 	return &blockSeriesSet{
 		blockBaseSeriesSet{

@@ -55,22 +55,22 @@ import (
 	klog "k8s.io/klog"
 	klogv2 "k8s.io/klog/v2"
 
-	"github.com/prometheus/prometheus/config"
-	"github.com/prometheus/prometheus/discovery"
-	_ "github.com/prometheus/prometheus/discovery/install" // Register service discovery implementations.
-	"github.com/prometheus/prometheus/notifier"
-	"github.com/prometheus/prometheus/pkg/labels"
-	"github.com/prometheus/prometheus/pkg/logging"
-	"github.com/prometheus/prometheus/pkg/relabel"
-	prom_runtime "github.com/prometheus/prometheus/pkg/runtime"
-	"github.com/prometheus/prometheus/promql"
-	"github.com/prometheus/prometheus/rules"
-	"github.com/prometheus/prometheus/scrape"
-	"github.com/prometheus/prometheus/storage"
-	"github.com/prometheus/prometheus/storage/remote"
-	"github.com/prometheus/prometheus/tsdb"
-	"github.com/prometheus/prometheus/util/strutil"
-	"github.com/prometheus/prometheus/web"
+	"github.com/rajvikram/prometheus/v2/config"
+	"github.com/rajvikram/prometheus/v2/discovery"
+	_ "github.com/rajvikram/prometheus/v2/discovery/install" // Register service discovery implementations.
+	"github.com/rajvikram/prometheus/v2/notifier"
+	"github.com/rajvikram/prometheus/v2/pkg/labels"
+	"github.com/rajvikram/prometheus/v2/pkg/logging"
+	"github.com/rajvikram/prometheus/v2/pkg/relabel"
+	prom_runtime "github.com/rajvikram/prometheus/v2/pkg/runtime"
+	"github.com/rajvikram/prometheus/v2/promql"
+	"github.com/rajvikram/prometheus/v2/rules"
+	"github.com/rajvikram/prometheus/v2/scrape"
+	"github.com/rajvikram/prometheus/v2/storage"
+	"github.com/rajvikram/prometheus/v2/storage/remote"
+	"github.com/rajvikram/prometheus/v2/tsdb"
+	"github.com/rajvikram/prometheus/v2/util/strutil"
+	"github.com/rajvikram/prometheus/v2/web"
 )
 
 var (
@@ -272,7 +272,7 @@ func main() {
 	a.Flag("rules.alert.resend-delay", "Minimum amount of time to wait before resending an alert to Alertmanager.").
 		Default("1m").SetValue(&cfg.resendDelay)
 
-	a.Flag("scrape.adjust-timestamps", "Adjust scrape timestamps by up to 2ms to align them to the intended schedule. See https://github.com/prometheus/prometheus/issues/7846 for more context. Experimental. This flag will be removed in a future release.").
+	a.Flag("scrape.adjust-timestamps", "Adjust scrape timestamps by up to 2ms to align them to the intended schedule. See https://github.com/rajvikram/prometheus/v2/issues/7846 for more context. Experimental. This flag will be removed in a future release.").
 		Hidden().Default("true").BoolVar(&scrape.AlignScrapeTimestamps)
 
 	a.Flag("alertmanager.notification-queue-capacity", "The capacity of the queue for pending Alertmanager notifications.").

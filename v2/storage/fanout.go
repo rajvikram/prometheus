@@ -20,8 +20,8 @@ import (
 	"github.com/go-kit/kit/log/level"
 	"github.com/prometheus/common/model"
 
-	"github.com/prometheus/prometheus/pkg/labels"
-	tsdb_errors "github.com/prometheus/prometheus/tsdb/errors"
+	"github.com/rajvikram/prometheus/v2/pkg/labels"
+	tsdb_errors "github.com/rajvikram/prometheus/v2/tsdb/errors"
 )
 
 type fanout struct {

@@ -56,7 +56,7 @@ jobs:
     executor: 
       name: win/default
       shell: powershell
-    working_directory: /go/src/github.com/prometheus/prometheus
+    working_directory: /go/src/github.com/rajvikram/prometheus/v2
     steps:
     - checkout
     - run:
@@ -70,7 +70,7 @@ jobs:
         command: |
           $env:GOARCH=""; $env:GOOS=""; cd web/ui; go generate
           cd ../..
-          $TestTargets = go list ./... | Where-Object { $_ -NotMatch "(github.com/prometheus/prometheus/discovery.*|github.com/prometheus/prometheus/config|github.com/prometheus/prometheus/web)"}
+          $TestTargets = go list ./... | Where-Object { $_ -NotMatch "(github.com/rajvikram/prometheus/v2/discovery.*|github.com/rajvikram/prometheus/v2/config|github.com/rajvikram/prometheus/v2/web)"}
           go test $TestTargets -vet=off -v
         environment:
           GOGC: "20"

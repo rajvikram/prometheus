@@ -1,4 +1,4 @@
-module github.com/prometheus/prometheus/documentation/prometheus-mixin
+module github.com/rajvikram/prometheus/v2/documentation/prometheus-mixin
 
 go 1.15
 

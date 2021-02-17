@@ -3,9 +3,9 @@
 [![CircleCI](https://circleci.com/gh/prometheus/prometheus/tree/master.svg?style=shield)][circleci]
 [![Docker Repository on Quay](https://quay.io/repository/prometheus/prometheus/status)][quay]
 [![Docker Pulls](https://img.shields.io/docker/pulls/prom/prometheus.svg?maxAge=604800)][hub]
-[![Go Report Card](https://goreportcard.com/badge/github.com/prometheus/prometheus)](https://goreportcard.com/report/github.com/prometheus/prometheus)
+[![Go Report Card](https://goreportcard.com/badge/github.com/rajvikram/prometheus/v2)](https://goreportcard.com/report/github.com/rajvikram/prometheus/v2)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/486/badge)](https://bestpractices.coreinfrastructure.org/projects/486)
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/prometheus/prometheus)
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/rajvikram/prometheus/v2)
 [![Fuzzing Status](https://oss-fuzz-build-logs.storage.googleapis.com/badges/prometheus.svg)](https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:prometheus)
 
 Visit [prometheus.io](https://prometheus.io) for the full documentation,
@@ -63,7 +63,7 @@ installed in order to build the frontend assets.
 You can directly use the `go` tool to download and install the `prometheus`
 and `promtool` binaries into your `GOPATH`:
 
-    $ go get github.com/prometheus/prometheus/cmd/...
+    $ go get github.com/rajvikram/prometheus/v2/cmd/...
     $ prometheus --config.file=your_config.yml
 
 *However*, when using `go get` to build Prometheus, Prometheus will expect to be able to
@@ -72,14 +72,14 @@ read its web assets from local filesystem directories under `web/ui/static` and
 from the root of the cloned repository. Note also that these directories do not include the
 new experimental React UI unless it has been built explicitly using `make assets` or `make build`.
 
-An example of the above configuration file can be found [here.](https://github.com/prometheus/prometheus/blob/master/documentation/examples/prometheus.yml)
+An example of the above configuration file can be found [here.](https://github.com/rajvikram/prometheus/v2/blob/master/documentation/examples/prometheus.yml)
 
 You can also clone the repository yourself and build using `make build`, which will compile in
 the web assets so that Prometheus can be run from anywhere:
 
     $ mkdir -p $GOPATH/src/github.com/prometheus
     $ cd $GOPATH/src/github.com/prometheus
-    $ git clone https://github.com/prometheus/prometheus.git
+    $ git clone https://github.com/rajvikram/prometheus/v2.git
     $ cd prometheus
     $ make build
     $ ./prometheus --config.file=your_config.yml
@@ -106,21 +106,21 @@ You can build a docker image locally with the following commands:
 
 ## React UI Development
 
-For more information on building, running, and developing on the new React-based UI, see the React app's [README.md](https://github.com/prometheus/prometheus/blob/master/web/ui/react-app/README.md).
+For more information on building, running, and developing on the new React-based UI, see the React app's [README.md](https://github.com/rajvikram/prometheus/v2/blob/master/web/ui/react-app/README.md).
 
 ## More information
 
-  * The source code is periodically indexed: [Prometheus Core](https://godoc.org/github.com/prometheus/prometheus).
+  * The source code is periodically indexed: [Prometheus Core](https://godoc.org/github.com/rajvikram/prometheus/v2).
   * You will find a CircleCI configuration in [`.circleci/config.yml`](.circleci/config.yml).
   * See the [Community page](https://prometheus.io/community) for how to reach the Prometheus developers and users on various communication channels.
 
 ## Contributing
 
-Refer to [CONTRIBUTING.md](https://github.com/prometheus/prometheus/blob/master/CONTRIBUTING.md)
+Refer to [CONTRIBUTING.md](https://github.com/rajvikram/prometheus/v2/blob/master/CONTRIBUTING.md)
 
 ## License
 
-Apache License 2.0, see [LICENSE](https://github.com/prometheus/prometheus/blob/master/LICENSE).
+Apache License 2.0, see [LICENSE](https://github.com/rajvikram/prometheus/v2/blob/master/LICENSE).
 
 
 [hub]: https://hub.docker.com/r/prom/prometheus/

@@ -39,16 +39,16 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/goleak"
 
-	"github.com/prometheus/prometheus/pkg/labels"
-	"github.com/prometheus/prometheus/storage"
-	"github.com/prometheus/prometheus/tsdb/chunks"
-	"github.com/prometheus/prometheus/tsdb/fileutil"
-	"github.com/prometheus/prometheus/tsdb/index"
-	"github.com/prometheus/prometheus/tsdb/record"
-	"github.com/prometheus/prometheus/tsdb/tombstones"
-	"github.com/prometheus/prometheus/tsdb/tsdbutil"
-	"github.com/prometheus/prometheus/tsdb/wal"
-	"github.com/prometheus/prometheus/util/testutil"
+	"github.com/rajvikram/prometheus/v2/pkg/labels"
+	"github.com/rajvikram/prometheus/v2/storage"
+	"github.com/rajvikram/prometheus/v2/tsdb/chunks"
+	"github.com/rajvikram/prometheus/v2/tsdb/fileutil"
+	"github.com/rajvikram/prometheus/v2/tsdb/index"
+	"github.com/rajvikram/prometheus/v2/tsdb/record"
+	"github.com/rajvikram/prometheus/v2/tsdb/tombstones"
+	"github.com/rajvikram/prometheus/v2/tsdb/tsdbutil"
+	"github.com/rajvikram/prometheus/v2/tsdb/wal"
+	"github.com/rajvikram/prometheus/v2/util/testutil"
 )
 
 func TestMain(m *testing.M) {
@@ -194,7 +194,7 @@ func TestDataAvailableOnlyAfterCommit(t *testing.T) {
 }
 
 // TestNoPanicAfterWALCorruption ensures that querying the db after a WAL corruption doesn't cause a panic.
-// https://github.com/prometheus/prometheus/issues/7548
+// https://github.com/rajvikram/prometheus/v2/issues/7548
 func TestNoPanicAfterWALCorruption(t *testing.T) {
 	db := openTestDB(t, &Options{WALSegmentSize: 32 * 1024}, nil)
 
@@ -602,7 +602,7 @@ func TestDB_Snapshot(t *testing.T) {
 
 // TestDB_Snapshot_ChunksOutsideOfCompactedRange ensures that a snapshot removes chunks samples
 // that are outside the set block time range.
-// See https://github.com/prometheus/prometheus/issues/5105
+// See https://github.com/rajvikram/prometheus/v2/issues/5105
 func TestDB_Snapshot_ChunksOutsideOfCompactedRange(t *testing.T) {
 	db := openTestDB(t, nil, nil)
 
@@ -2624,7 +2624,7 @@ func TestRangeForTimestamp(t *testing.T) {
 }
 
 // TestChunkReader_ConcurrentReads checks that the chunk result can be read concurrently.
-// Regression test for https://github.com/prometheus/prometheus/pull/6514.
+// Regression test for https://github.com/rajvikram/prometheus/v2/pull/6514.
 func TestChunkReader_ConcurrentReads(t *testing.T) {
 	chks := []chunks.Meta{
 		tsdbutil.ChunkFromSamples([]tsdbutil.Sample{sample{1, 1}}),

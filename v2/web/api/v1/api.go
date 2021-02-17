@@ -38,22 +38,22 @@ import (
 	"github.com/prometheus/common/model"
 	"github.com/prometheus/common/route"
 
-	"github.com/prometheus/prometheus/config"
-	"github.com/prometheus/prometheus/pkg/gate"
-	"github.com/prometheus/prometheus/pkg/labels"
-	"github.com/prometheus/prometheus/pkg/textparse"
-	"github.com/prometheus/prometheus/pkg/timestamp"
-	"github.com/prometheus/prometheus/prompb"
-	"github.com/prometheus/prometheus/promql"
-	"github.com/prometheus/prometheus/promql/parser"
-	"github.com/prometheus/prometheus/rules"
-	"github.com/prometheus/prometheus/scrape"
-	"github.com/prometheus/prometheus/storage"
-	"github.com/prometheus/prometheus/storage/remote"
-	"github.com/prometheus/prometheus/tsdb"
-	"github.com/prometheus/prometheus/tsdb/index"
-	"github.com/prometheus/prometheus/util/httputil"
-	"github.com/prometheus/prometheus/util/stats"
+	"github.com/rajvikram/prometheus/v2/config"
+	"github.com/rajvikram/prometheus/v2/pkg/gate"
+	"github.com/rajvikram/prometheus/v2/pkg/labels"
+	"github.com/rajvikram/prometheus/v2/pkg/textparse"
+	"github.com/rajvikram/prometheus/v2/pkg/timestamp"
+	"github.com/rajvikram/prometheus/v2/prompb"
+	"github.com/rajvikram/prometheus/v2/promql"
+	"github.com/rajvikram/prometheus/v2/promql/parser"
+	"github.com/rajvikram/prometheus/v2/rules"
+	"github.com/rajvikram/prometheus/v2/scrape"
+	"github.com/rajvikram/prometheus/v2/storage"
+	"github.com/rajvikram/prometheus/v2/storage/remote"
+	"github.com/rajvikram/prometheus/v2/tsdb"
+	"github.com/rajvikram/prometheus/v2/tsdb/index"
+	"github.com/rajvikram/prometheus/v2/util/httputil"
+	"github.com/rajvikram/prometheus/v2/util/stats"
 )
 
 const (
@@ -403,7 +403,7 @@ func (api *API) query(r *http.Request) (result apiFuncResult) {
 		Stats:      qs,
 	}, nil, res.Warnings, qry.Close}
 }
-
+// @Raj -  Replicate this handler to pass query to the storage
 func (api *API) queryRange(r *http.Request) (result apiFuncResult) {
 	start, err := parseTime(r.FormValue("start"))
 	if err != nil {
